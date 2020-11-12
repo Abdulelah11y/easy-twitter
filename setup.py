@@ -12,9 +12,9 @@ classifiers = [
 ]
  
 setup(
-  name='mutairibassam',
+  name='easytwitter',
   version='0.0.1',
-  description='Simplify the process of using Twitter APIs',
+  description='Simplifing Twitter APIs.',
   long_description=open('README.md').read() + '\n\n' + open('CHANGELOG').read(),
   url='https://github.com/mutairibassam/easy-twitter',  
   author='mutairibassam',
