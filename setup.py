@@ -1,5 +1,8 @@
 
 from setuptools import setup, find_packages
+
+with open("README.md", "r") as fh:
+  long_description = fh.read()
  
 classifiers = [
   'Development Status :: 3 - Alpha',
@@ -13,9 +16,10 @@ classifiers = [
  
 setup(
   name='easytwitter',
-  version='0.0.1',
+  version='0.0.5',
   description='Simplifing Twitter APIs.',
-  long_description=open('README.md').read() + '\n\n' + open('CHANGELOG').read(),
+  long_description=long_description,
+  long_description_content_type="text/markdown",
   url='https://github.com/mutairibassam/easy-twitter',  
   author='mutairibassam',
   author_email='mutairibassam@gmail.com',
@@ -23,5 +27,10 @@ setup(
   classifiers=classifiers,
   keywords='twitterapi', 
   packages=find_packages(),
-  install_requires=[''] 
+  install_requires=[''],
+  # extras_require={
+  #   "dev": [
+  #     "pytest>=3.7",
+  #   ]
+  # }
 )

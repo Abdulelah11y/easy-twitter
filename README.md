@@ -1,33 +1,66 @@
 # Easy-Twitter 
-Simplifing Twitter APIs.
+Simplifying Twitter APIs by leveraging tweepy library
 
-## How to use:
-#### prerequisite
-
- - Twitter developer account. [For registration](https://developer.twitter.com/en/apply-for-access)
- - Install Easy-Twitter Package.
+## Prerequisites
+ 1. Twitter developer account. [For registration](https://developer.twitter.com/en/apply-for-access)
+ 2. Pandas library
+```bash
+# terminal
+pip install pandas
+```
+```python
+# python
+import pandas
+```
+ 3. Tweepy library
+ ```bash
+ # terminal
+pip install tweepy
+```
+```python
+# python
+import tweepy
+```
  
 ## Installation
-```
+```bash
+# terminal
 pip install easytwitter
 ```
 
-## Import
-import all the functions
-```
+## Usage
+- Import module
+
+```python
+# to access all the functions
 from easytwitter import *
 ```
-import a specific function
+
+ - First establish the connection
+```python
+# you need to enter your twitter tokens
+
+# consumer_key = "xxxxxxxxxxxxxxxxxxxx"
+# consumer_secret = "xxxxxxxxxxxxxxxxxxxxxxx"
+# access_token = "xxxxxxxxxxxxxxxxxxxxxx"
+# access_token_secret = "xxxxxxxxxxxxxxxxxxxxxxx"
+
+user.connect_me()
 ```
-from easytwitter import get_user_timeline()
-```
 
-## get_user_timeline() function
-Call `get_user_timeline()` to retrieve the timeline of any twitter account. The default is set to 20 tweets. This function returns the tweets as a dataframe.
+## API Reference
 
-``` 
-# To interact with the dataframe you should store the returned value in a new variable.
+### get_user_timeline()
 
-df = get_user_timeline()
+Returns the 20 most recent statuses posted from the specified user as a dataframe. To interact with the dataframe, you should store the returned value.
+
+``` python
+df = user.get_user_timeline()
 df.head()
 ```
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
