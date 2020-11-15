@@ -16,7 +16,7 @@ classifiers = [
  
 setup(
   name='easytwitter',
-  version='0.0.5',
+  version='0.1.0',
   description='Simplifing Twitter APIs.',
   long_description=long_description,
   long_description_content_type="text/markdown",
