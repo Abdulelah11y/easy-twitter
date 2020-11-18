@@ -1,4 +1,4 @@
-# Easy-Twitter 
+# Easy-Twitter
 Simplifying Twitter APIs by leveraging tweepy library
 
 ## Prerequisites
@@ -21,7 +21,7 @@ pip install tweepy
 # python
 import tweepy
 ```
- 
+
 ## Installation
 ```bash
 # terminal
@@ -56,6 +56,15 @@ Returns the 20 most recent statuses posted from the specified user as a datafram
 
 ``` python
 df = user.get_user_timeline()
+df.head()
+```
+
+### get_followers_details()
+
+Returns a user’s followers details as a dataframe.
+
+``` python
+df = user.get_followers_details()
 df.head()
 ```
 

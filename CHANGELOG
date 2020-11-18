@@ -1,8 +1,18 @@
             Change Log
-==========================================
+==================================================================
 
-Release number:     0.0.1 
-Date:               12/011/2020
+Release number:     0.1.0
+Date:               15/11/2020
 Contributors:       mutairibassam
+Version:            Beta
+Changes:            Adding get_user_timeline function
 
--------------------------------------------
+==================================================================
+
+Release number:     0.1.1
+Date:               19/11/2020
+Contributors:       mutairibassam
+Version:            Alpha
+Changes:            Adding get_followers_details function
+
+==================================================================

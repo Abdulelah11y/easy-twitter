@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 with open("README.md", "r") as fh:
   long_description = fh.read()
- 
+
 classifiers = [
   'Development Status :: 3 - Alpha',
   'Framework :: Jupyter',
@@ -13,24 +13,24 @@ classifiers = [
   'Programming Language :: Python :: 3',
   'Topic :: Software Development :: Libraries :: Python Modules',
 ]
- 
+
 setup(
   name='easytwitter',
-  version='0.1.0',
+  version='0.1.1',
   description='Simplifing Twitter APIs.',
   long_description=long_description,
   long_description_content_type="text/markdown",
-  url='https://github.com/mutairibassam/easy-twitter',  
+  url='https://github.com/mutairibassam/easy-twitter',
   author='mutairibassam',
   author_email='mutairibassam@gmail.com',
-  license='MIT', 
+  license='MIT',
   classifiers=classifiers,
-  keywords='twitterapi', 
+  keywords='twitterapi',
   packages=find_packages(),
   install_requires=[''],
-  # extras_require={
-  #   "dev": [
-  #     "pytest>=3.7",
-  #   ]
-  # }
+  extras_require={
+    "dev": [
+      "pytest>=3.7",
+    ]
+  }
 )
