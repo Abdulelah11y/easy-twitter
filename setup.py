@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
   long_description = fh.read()
 
 classifiers = [
-  'Development Status :: 3 - Alpha',
+  'Development Status :: 4 - Beta',
   'Framework :: Jupyter',
   'Intended Audience :: Developers',
   'Operating System :: MacOS',
@@ -16,7 +16,7 @@ classifiers = [
 
 setup(
   name='easytwitter',
-  version='0.1.1',
+  version='0.1.2',
   description='Simplifing Twitter APIs.',
   long_description=long_description,
   long_description_content_type="text/markdown",

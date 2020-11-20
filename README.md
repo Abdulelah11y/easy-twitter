@@ -1,30 +1,28 @@
 # Easy-Twitter
-Simplifying Twitter APIs by leveraging tweepy library
+Simplifying Twitter APIs by leveraging tweepy APIs.
 
-## Prerequisites
- 1. Twitter developer account. [For registration](https://developer.twitter.com/en/apply-for-access)
- 2. Pandas library
+## Required steps
+ 1. Getting Twitter developer account. [For registration](https://developer.twitter.com/en/apply-for-access)
+ 2. Install Pandas package.
+ 3. Install Numpy package.
+ 4. Install Tweepy package.
+
 ```bash
-# terminal
-pip install pandas
-```
-```python
-# python
-import pandas
-```
- 3. Tweepy library
- ```bash
- # terminal
+# packages installation "In terminal"
+conda install pandas
+conda install numpy
 pip install tweepy
 ```
 ```python
-# python
+# importing packages in your jupyter notebook
+import pandas as pd		# Please use the abbreviation "pd"
+import numpy as np		# Please use the abbreviation "np"
 import tweepy
 ```
 
 ## Installation
 ```bash
-# terminal
+# how to install easytwitter package
 pip install easytwitter
 ```
 
@@ -32,36 +30,35 @@ pip install easytwitter
 - Import module
 
 ```python
-# to access all the functions
+# use * to access all the objects
 from easytwitter import *
 ```
 
- - First establish the connection
+ - First your should establish the connection
 ```python
-# you need to enter your twitter tokens
+# returns 4 inputs to validate your twitter tokens.
+user.connect_me()
 
 # consumer_key = "xxxxxxxxxxxxxxxxxxxx"
 # consumer_secret = "xxxxxxxxxxxxxxxxxxxxxxx"
 # access_token = "xxxxxxxxxxxxxxxxxxxxxx"
 # access_token_secret = "xxxxxxxxxxxxxxxxxxxxxxx"
-
-user.connect_me()
 ```
 
 ## API Reference
 
 ### get_user_timeline()
 
-Returns the 20 most recent statuses posted from the specified user as a dataframe. To interact with the dataframe, you should store the returned value.
+Returns a summary of the latest 20 tweets of a specific twitter account.
 
 ``` python
+# if you want to interact with the data, store it in a new dataframe
 df = user.get_user_timeline()
 df.head()
 ```
 
 ### get_followers_details()
-
-Returns a user’s followers details as a dataframe.
+Returns a users' followers details.
 
 ``` python
 df = user.get_followers_details()

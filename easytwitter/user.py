@@ -1,8 +1,7 @@
 # required libraries
 import tweepy
 import pandas as pd
-
-
+import numpy as np
 
 
 
@@ -45,7 +44,7 @@ def connect_me():
 def get_user_timeline():
 
     '''
-    returns latest 20 tweets of a specific twitter account timeline
+    returns a summary about the latest 20 tweets of a specific twitter account
 
     '''
     dataframe = []
@@ -53,15 +52,26 @@ def get_user_timeline():
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
 
-    api = tweepy.API(auth)
+    api = tweepy.API(auth, wait_on_rate_limit=True)
 
     twitter_account = input('Enter twitter account: ')
-    user_timeline = api.user_timeline(twitter_account)
-    for tweet in user_timeline:
+    tweets = api.user_timeline(twitter_account)
+
+    for tweet in tweets:
         dataframe.append(tweet.text)
 
-    df = pd.DataFrame(dataframe)
+    df = pd.DataFrame(dataframe, columns=['tweets'])
+
+    # We add relevant data:
+    df['len']  = np.array([len(tweet.text) for tweet in tweets])
+    df['ID']   = np.array([tweet.id for tweet in tweets])
+    df['Date'] = np.array([tweet.created_at for tweet in tweets])
+    df['Source'] = np.array([tweet.source for tweet in tweets])
+    df['Likes']  = np.array([tweet.favorite_count for tweet in tweets])
+    df['RTs']    = np.array([tweet.retweet_count for tweet in tweets])
+
     return df
+
 
 def get_followers_details():
 
@@ -70,23 +80,37 @@ def get_followers_details():
 
     '''
     import json
-
+    import os
 
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
 
-    api = tweepy.API(auth)
+    api = tweepy.API(auth, wait_on_rate_limit=True)
 
     twitter_account = input('Enter twitter account: ')
+    tweet_ids = api.followers(twitter_account)
 
-    df = api.followers(twitter_account)
+    count = 0
+
+    with open('tweet_json.txt', 'w') as outfile:
+        for tweet_id in tweet_ids:
+            count += 1
+            try:
+                json.dump(tweet_id._json, outfile)
+                outfile.write('\n')
+            except tweepy.TweepError as e:
+                fails_dict[tweet_id] = e
+                pass
 
     tweets = []
-    for eachline in df:
-        try:
-            tweet = json.loads(eachline)
-            tweets.append(tweet)
-        except:
-            continue
+    with open('tweet_json.txt') as file:
+        for eachline in file:
+            try:
+                tweet = json.loads(eachline)
+                tweets.append(tweet)
+            except:
+                continue
+
+    os.remove("tweet_json.txt")
     dataframe = pd.DataFrame(tweets, columns=list(tweets[0].keys()))
     return dataframe
