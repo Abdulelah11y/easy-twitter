@@ -3,9 +3,6 @@ import tweepy
 import pandas as pd
 import numpy as np
 
-
-
-
 consumer_key = ""
 consumer_secret = ""
 access_token = ""
@@ -32,13 +29,13 @@ def connect_me():
 
     api = tweepy.API(auth)
 
-    test_account = "bassammutairi"
+    test_account = "twitter"
 
     try:
         api.user_timeline(test_account)
         print('You are good to go!')
     except:
-        print('Please enter valid keys!')
+        print('Please enter valid tokens!')
 
 
 def get_user_timeline():
