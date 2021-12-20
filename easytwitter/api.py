@@ -107,7 +107,8 @@ class Api:
 
 
 def main():
-    api = Api()
+    # api = Api()
     # api.get_user_timeline()
     # api.get_followers_details()
-    api.mentions_timeline()
+    # api.get_mentions_timeline()
+    pass
