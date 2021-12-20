@@ -72,6 +72,15 @@ df = Api.get_followers_details()
 df.head()
 ```
 
+### get_mentions_timeline()
+
+Returns the 20 most recent mentions, including retweets.
+
+```python
+df = Api.get_mentions_timeline()
+df.head()
+```
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

@@ -77,7 +77,7 @@ class Api:
         else:
             print("You are not authorized.")
 
-    def mentions_timeline(self):
+    def get_mentions_timeline(self):
         '''
         Returns the 20 most recent mentions, including retweets.
 
