@@ -7,7 +7,6 @@ from easytwitter.auth import Auth
 
 
 class Api:
-
     def get_user_timeline(self):
         '''
         returns a summary about the latest 20 tweets of a specific twitter account
@@ -82,6 +81,7 @@ class Api:
 
 
 def main():
-    api = Api()
-    api.get_user_timeline()
-    api.get_followers_details()
+    # api = Api()
+    # api.get_user_timeline()
+    # api.get_followers_details()
+    pass
