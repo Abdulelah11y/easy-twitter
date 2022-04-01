@@ -33,8 +33,6 @@ class Api:
             df['Source'] = np.array([tweet.source for tweet in tweets])
             df['Likes'] = np.array([tweet.favorite_count for tweet in tweets])
             df['RTs'] = np.array([tweet.retweet_count for tweet in tweets])
-
-            print(df)
             return df
         else:
             print("You are not authorized.")
@@ -79,9 +77,38 @@ class Api:
         else:
             print("You are not authorized.")
 
+    def get_mentions_timeline(self):
+        '''
+        Returns the 20 most recent mentions, including retweets.
+
+        '''
+        dataframe = []
+
+        api = Auth.connect(self)
+        if api != None:
+            tweets = api.mentions_timeline()
+
+            for tweet in tweets:
+                dataframe.append(tweet.text)
+
+            df = pd.DataFrame(dataframe, columns=['tweets'])
+
+            # add relevant data:
+            df['len'] = np.array([len(tweet.text) for tweet in tweets])
+            df['ID'] = np.array([tweet.id for tweet in tweets])
+            df['Date'] = np.array([tweet.created_at for tweet in tweets])
+            df['Source'] = np.array([tweet.source for tweet in tweets])
+            df['Likes'] = np.array([tweet.favorite_count for tweet in tweets])
+            df['RTs'] = np.array([tweet.retweet_count for tweet in tweets])
+
+            return df
+        else:
+            print("You are not authorized.")
+
 
 def main():
     # api = Api()
     # api.get_user_timeline()
     # api.get_followers_details()
+    # api.get_mentions_timeline()
     pass
