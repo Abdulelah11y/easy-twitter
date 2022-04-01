@@ -1,11 +1,13 @@
 # Easy-Twitter
+
 Simplifying Twitter APIs by leveraging tweepy APIs.
 
 ## Required steps
- 1. Getting Twitter developer account. [For registration](https://developer.twitter.com/en/apply-for-access)
- 2. Install Pandas package.
- 3. Install Numpy package.
- 4. Install Tweepy package.
+
+1.  Getting Twitter developer account. [For registration](https://developer.twitter.com/en/apply-for-access)
+2.  Install Pandas package.
+3.  Install Numpy package.
+4.  Install Tweepy package.
 
 ```bash
 # packages installation "In terminal"
@@ -13,6 +15,7 @@ conda install pandas
 conda install numpy
 pip install tweepy
 ```
+
 ```python
 # importing packages in your jupyter notebook
 import pandas as pd		# Please use the abbreviation "pd"
@@ -21,12 +24,14 @@ import tweepy
 ```
 
 ## Installation
+
 ```bash
 # how to install easytwitter package
 pip install easytwitter
 ```
 
 ## Usage
+
 - Import module
 
 ```python
@@ -34,10 +39,11 @@ pip install easytwitter
 from easytwitter import *
 ```
 
- - First your should establish the connection
+- First your should establish the connection
+
 ```python
 # returns 4 inputs to validate your twitter tokens.
-user.connect_me()
+Auth.connect_me()
 
 # consumer_key = "xxxxxxxxxxxxxxxxxxxx"
 # consumer_secret = "xxxxxxxxxxxxxxxxxxxxxxx"
@@ -51,22 +57,34 @@ user.connect_me()
 
 Returns a summary of the latest 20 tweets of a specific twitter account.
 
-``` python
+```python
 # if you want to interact with the data, store it in a new dataframe
-df = user.get_user_timeline()
+df = Api.get_user_timeline()
 df.head()
 ```
 
 ### get_followers_details()
+
 Returns a users' followers details.
 
-``` python
-df = user.get_followers_details()
+```python
+df = Api.get_followers_details()
+df.head()
+```
+
+### get_mentions_timeline()
+
+Returns the 20 most recent mentions, including retweets.
+
+```python
+df = Api.get_mentions_timeline()
 df.head()
 ```
 
 ## Contributing
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
+
 [MIT](https://choosealicense.com/licenses/mit/)
