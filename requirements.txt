@@ -91,7 +91,7 @@ soupsieve==1.9.6
 stevedore==1.32.0
 toml==0.10.2
 typing==3.10.0.0
-urllib3==1.25.9
+urllib3==1.26.5
 vboxapi==1.0
 virtualenv==20.4.4
 virtualenv-clone==0.5.4
