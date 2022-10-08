@@ -65,7 +65,7 @@ df.head()
 
 ### get_followers_details()
 
-Returns a users' followers details.
+Returns a user's followers details.
 
 ```python
 df = Api.get_followers_details()
