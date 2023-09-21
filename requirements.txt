@@ -16,7 +16,7 @@ colorama==0.3.9
 configparser==4.0.2
 contextlib2==0.6.0.post1
 coverage==4.4.2
-cryptography==39.0.1
+cryptography==41.0.4
 distlib==0.3.1
 enum34==1.1.6
 filelock==3.0.12
